@@ -204,7 +204,7 @@
    </map>
    </section>
    <h3>Send me a message</h3>
-   <form action="thank-you.html" method="get">
+   <form action="thank-you.html" method="post" enctype="multipart/form-data">
    <fieldset>
     <legend> Your Details</legend>
     <label for="fullname">Full name:</label>
@@ -262,6 +262,9 @@ pattern="0[79][0-9]{8}" title="10 digits starting with 09 or 07">
     <br><br>
     <label for="message">Message:</label><br>
     <textarea name="massage" id="message" row ="6" cols="40" required></textarea>
+    <br>
+    <input type="checkbox" id="copy" name="copy" value="yes">
+    <label for="copy">send me a copy of this message</label>
    </fieldset>
    <button type="submit">Send Message</button>
    <button type="reset">Clear</button>
