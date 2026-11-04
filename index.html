@@ -12,7 +12,8 @@
 </head>
 <body>
     <header>
-        
+        <canvas id="logo" width="120" height="120">Eden Wubshet logo</canvas>
+       
    <h1>Hello, I am Eden Wubshet</h1> 
    <img src="images/profile.jpg" alt="portrait of Eden Wubshet smiling"
    title="Eden Wubshet" width="200" height ="200">
@@ -117,6 +118,8 @@ Close
     <meter id ="lvl-js" value ="0.2" min="0"
     max="1" low="0.3" high ="0.7" optimum="1">20%</meter>
 </p>
+<canvas id="skillChart" width="300" height="150"></canvas>
+
 <h3>My Learning Roadmap</h3>
 <ol type="1">
     <li>HTML structure and content</li>
@@ -327,10 +330,59 @@ pattern="0[79][0-9]{8}" title="10 digits starting with 09 or 07">
    </main>
    <footer>
     <p>&copy; 2026 Eden Wubshet. All right reserved.</p>
-    <p>Last update: <time datetime="2026-11-04">november 2026</time></p>
+    <p>Last update: <time datetime="2026-11-04">November 2026</time></p>
 
    </footer>
+   <script>
+const canvas = document.getElementById('logo');
+const ctx = canvas.getContext('2d');
 
-  
+ctx.fillStyle = "#1f5fa8";
+ctx.fillRect(0, 0, 120, 120);
+
+ctx.beginPath();
+ctx.arc(60, 60, 45, 0, 2 * Math.PI);
+ctx.fillStyle = "white";
+ctx.fill();
+
+ctx.fillStyle = "#1f5fa8";
+ctx.font = "bold 36px Arial";
+ctx.textAlign = "center";
+ctx.textBaseline = "middle";
+ctx.fillText("EW", 60, 62);
+</script>
+
+<script>
+window.onload = function() {
+
+    const canvas = document.getElementById("skillChart");
+    const ctx = canvas.getContext("2d");
+
+    const skills = [
+        { name: "HTML", value: 80 },
+        { name: "Python", value: 70 },
+        { name: "JavaScript", value: 20 }
+    ];
+
+    const positions = [30, 120, 210];
+    const barWidth = 40;
+    const maxHeight = 120;
+
+    for (let i = 0; i < skills.length; i++) {
+
+        let height = (skills[i].value / 100) * maxHeight;
+        let y = 130 - height;
+
+        ctx.fillStyle = "#1f5fa8";
+        ctx.fillRect(positions[i], y, barWidth, height);
+
+        ctx.fillStyle = "black";
+        ctx.font = "12px Arial";
+        ctx.textAlign = "center";
+
+        ctx.fillText(skills[i].name, positions[i] + 20, 145);
+    }
+};
+</script>
 </body>
 </html>
